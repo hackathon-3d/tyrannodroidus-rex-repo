@@ -1,6 +1,7 @@
 package controllers;
 
 import model.Bid;
+import model.Job;
 import model.Load;
 import model.User;
 import play.libs.Json;
@@ -58,7 +59,26 @@ public class BidController extends Controller {
     public static Result createBid() {
         Bid newBid = Json.fromJson(request().body().asJson(),Bid.class);
         newBid.save();
+        updateRating(newBid);
         return ok();
     }
 
+    private static void updateRating(Bid newBid) {
+        // Get jobs by haulerId
+        User biddingUser = newBid.getBiddingUser();
+        List<Job> jobs = Job.getJobs(biddingUser);
+
+        // Compute the average rating
+        int rating = 0;
+        if (jobs.size() > 0) {
+            int ratingSum = 0;
+            for (Job job : jobs) {
+                ratingSum += job.getRating();
+            }
+            double ratingAvg = ratingSum/jobs.size();
+            rating = (int)Math.round(ratingAvg);
+        }
+        biddingUser.setHaulerRating(rating);
+        biddingUser.save();
+    }
 }

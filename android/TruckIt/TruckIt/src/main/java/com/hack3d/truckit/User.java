@@ -28,6 +28,9 @@ public class User {
     @Expose
     private List<Integer> haulerZipCodes;
 
+    @Expose
+    private int haulerRating;
+
     public String getUserId() {
         return userId;
     }
@@ -66,6 +69,14 @@ public class User {
 
     public void setHaulerZipCodes(List<Integer> haulerZipCodes) {
         this.haulerZipCodes = haulerZipCodes;
+    }
+
+    public int getHaulerRating() {
+        return haulerRating;
+    }
+
+    public void setHaulerRating(int haulerRating) {
+        this.haulerRating = haulerRating;
     }
 
 }

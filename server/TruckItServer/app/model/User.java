@@ -36,6 +36,9 @@ public class User extends Model {
     @Column
     private List<Location> haulerLocations;
 
+    @Column
+    private int haulerRating;
+
     public static User findById(String id)
     {
         return find.byId(id);
@@ -86,6 +89,14 @@ public class User extends Model {
 
     public void setHaulerLocations(List<Location> haulerLocations) {
         this.haulerLocations = haulerLocations;
+    }
+
+    public int getHaulerRating() {
+        return haulerRating;
+    }
+
+    public void setHaulerRating(int haulerRating) {
+        this.haulerRating = haulerRating;
     }
 
 }

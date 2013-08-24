@@ -44,6 +44,13 @@ public class Job extends Model {
         return el.findList();
     }
 
+    public static List<Job> getJobs(User hauler) {
+        ExpressionList<Job> el = find
+                .where()
+                .eq("hauler.userId",hauler.getUserId());
+        return el.findList();
+    }
+
     public int getId() {
         return id;
     }
