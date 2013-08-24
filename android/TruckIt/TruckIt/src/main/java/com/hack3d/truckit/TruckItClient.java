@@ -15,8 +15,10 @@ public class TruckItClient {
     private static final String BASE_URL = "http://192.168.8.72:9000";
     private static final String CREATE_USER_URL = "/user";
     private static final String CREATE_LOAD_URL = "/load";
+    private static final String CREATE_BID_URL = "/bid";
     private static final String GET_LOADS_URL = "/load";
     private static final String GET_BIDS_URL = "/bid";
+
 
 
     public static void createUser(User user) {
@@ -27,6 +29,11 @@ public class TruckItClient {
     public static void createLoad(Load load) {
         String jsonEntity = new Gson().toJson(load,Load.class);
         HttpHelper.postJson(getUrl(CREATE_LOAD_URL),jsonEntity);
+    }
+
+    public static void createBid(Bid bid) {
+        String jsonEntity = new Gson().toJson(bid,Bid.class);
+        HttpHelper.postJson(getUrl(CREATE_BID_URL),jsonEntity);
     }
 
     public static List<Load> getLoads(String city, String state) {

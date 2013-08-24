@@ -53,6 +53,8 @@ public class BidController extends Controller {
     }
 
     public static Result createBid() {
+        Bid newBid = Json.fromJson(request().body().asJson(),Bid.class);
+        newBid.save();
         return ok();
     }
 
