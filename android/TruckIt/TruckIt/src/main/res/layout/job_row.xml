@@ -5,13 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <RatingBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
-            android:layout_gravity="right|center_vertical"
-            android:numStars="5"
-            />
+
 
     <LinearLayout
             android:orientation="horizontal"
@@ -30,6 +24,13 @@
                 android:text="$10.00"
                 android:id="@+id/tvPrice"
                 android:layout_gravity="center_vertical"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_gravity="right|center_vertical"
+                android:numStars="5"
+                />
     </LinearLayout>
     <TextView
             android:layout_width="wrap_content"
