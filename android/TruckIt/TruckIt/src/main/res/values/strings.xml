@@ -21,5 +21,6 @@
     <string name="title_activity_hauler_loads">Hauler Loads</string>
     <string name="button_hauler_profile">Profile</string>
     <string name="button_hauler_loads">Loads</string>
+    <string name="title_activity_mode_select">Select Mode</string>
 
 </resources>

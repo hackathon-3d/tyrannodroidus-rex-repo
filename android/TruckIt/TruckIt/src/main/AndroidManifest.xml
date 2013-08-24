@@ -4,6 +4,8 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
@@ -14,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.hack3d.truckit.ModeSelectActivity"
+            android:name="com.hack3d.truckit.RegisterActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +25,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ClientPastJobsActivity"
+                android:name="com.hack3d.truckit.ModeSelectActivity"
+                android:label="@string/title_activity_mode_select" >
+        </activity>
+        <activity
+            android:name="com.hack3d.truckit.ClientPastJobsActivity"
             android:label="@string/title_activity_client_past_jobs" >
         </activity>
         <activity
-            android:name=".ClientMainActivity"
+            android:name="com.hack3d.truckit.ClientMainActivity"
             android:label="@string/title_activity_client_main" >
         </activity>
         <activity
@@ -41,6 +47,11 @@
         <activity
             android:name="com.hack3d.truckit.HaulerLoads"
             android:label="@string/title_activity_hauler_loads" >
+        </activity>
+        <activity
+            android:name="com.hack3d.truckit.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
     </application>
 

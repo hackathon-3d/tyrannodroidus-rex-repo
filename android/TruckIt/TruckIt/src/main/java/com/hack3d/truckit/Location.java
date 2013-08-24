@@ -14,11 +14,15 @@ public class Location {
     @Expose
     public int id;
 
+    @Expose
     private String street;
 
+    @Expose
     private String city;
 
+    @Expose
     private String state;
 
+    @Expose
     private int zip;
 }

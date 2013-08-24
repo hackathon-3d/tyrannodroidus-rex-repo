@@ -1,5 +1,7 @@
 package com.hack3d.truckit;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created with IntelliJ IDEA.
  * User: ericwood
@@ -9,15 +11,19 @@ package com.hack3d.truckit;
  */
 public class Job {
 
-   private int id;
+    @Expose
+    private int id;
 
+    @Expose
     private Load load;
 
+    @Expose
     private String haulerId;
 
+    @Expose
     private double price;
 
+    @Expose
     private int rating;
-
 
 }
