@@ -17,8 +17,8 @@
 
         <EditText
                 android:layout_width="fill_parent"
-                android:layout_height="154dp"
-                android:id="@+id/editText"
+                android:layout_height="wrap_content"
+                android:id="@+id/create_job_description"
                 android:layout_gravity="left|center_vertical"
                 android:hint="A description of the work you need done."/>
 
@@ -29,16 +29,35 @@
                 android:ems="10"
                 android:id="@+id/create_job_start_input"
                 android:layout_gravity="left|center_vertical"
-                android:hint="Start Time"/>
+                android:hint="@string/pickup_by"
+                />
 
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
-                android:id="@+id/create_text_end_input"
+                android:id="@+id/create_job_end_input"
                 android:layout_gravity="left|center_vertical"
-                android:hint="End Time"/>
+                android:hint="@string/dropoff_by"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Pick Up Location"
+                android:id="@+id/textView"
+                android:layout_gravity="left|center_vertical"/>
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                android:id="@+id/create_job_pickup_address"
+                android:hint="Address"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"/>
 
         <RelativeLayout
                 android:layout_width="fill_parent"
@@ -48,41 +67,87 @@
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPostalAddress"
-                    android:ems="10"
-                    android:id="@+id/create_job_address"
-                    android:hint="Address"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"/>
-
-            <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/create_job_state"
+                    android:id="@+id/create_job_pickup_state"
                     android:hint="State"
                     android:layout_alignParentTop="false"
-                    android:layout_below="@+id/create_job_address"
-                    android:layout_toLeftOf="@+id/create_job_zip"/>
+                    android:layout_below="@+id/create_job_pickup_address"
+                    android:layout_toLeftOf="@+id/create_job_pickup_zip"/>
 
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/create_job_city"
-                    android:layout_below="@+id/create_job_address"
+                    android:id="@+id/create_job_pickup_city"
+                    android:layout_below="@+id/create_job_pickup_address"
                     android:layout_alignParentLeft="true"
                     android:hint="City"
-                    android:layout_alignBottom="@+id/create_job_state"
-                    android:layout_toLeftOf="@+id/create_job_state"/>
+                    android:layout_alignBottom="@+id/create_job_pickup_state"
+                    android:layout_toLeftOf="@+id/create_job_pickup_state"/>
 
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/create_job_zip"
+                    android:id="@+id/create_job_pickup_zip"
                     android:layout_alignParentBottom="false"
                     android:layout_alignParentRight="true"
                     android:hint="ZIP"
-                    android:layout_alignBaseline="@+id/create_job_city"
+                    android:layout_alignBaseline="@+id/create_job_pickup_city"
                     android:minWidth="80dp"/>
+        </RelativeLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Drop Off Location"
+                android:id="@+id/create_job_drop_off_location"
+                android:layout_gravity="left|center_vertical"/>
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                android:id="@+id/create_job_dropoff_address"
+                android:hint="Address"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="left|center_vertical"/>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:id="@+id/relativeLayout">
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_dropoff_state"
+                    android:hint="State"
+                    android:layout_alignParentTop="false"
+                    android:layout_below="@+id/create_job_pickup_address"
+                    android:layout_toLeftOf="@+id/create_job_dropoff_zip"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_dropoff_city"
+                    android:layout_below="@+id/create_job_pickup_address"
+                    android:layout_alignParentLeft="true"
+                    android:hint="City"
+                    android:layout_alignBottom="@+id/create_job_dropoff_state"
+                    android:layout_toLeftOf="@+id/create_job_dropoff_state"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_dropoff_zip"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentRight="true"
+                    android:hint="ZIP"
+                    android:layout_alignBaseline="@+id/create_job_dropoff_city"
+                    android:minWidth="80dp"/>
+
         </RelativeLayout>
 
         <Button
