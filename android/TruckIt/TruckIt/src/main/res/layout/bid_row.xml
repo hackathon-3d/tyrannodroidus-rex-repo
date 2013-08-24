@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/ivAccept"
+                   android:src="@drawable/edit_finish"
+                   android:layout_gravity="left|center_vertical"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="$10.00"
+                android:id="@+id/tvPrice"
+                android:layout_gravity="center_vertical"/>
+        <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_gravity="right|center_vertical"/>
+    </LinearLayout>
+    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Large Text"
+                android:id="@+id/textView"
+                android:layout_gravity="left|center_vertical"/>
+</LinearLayout>
