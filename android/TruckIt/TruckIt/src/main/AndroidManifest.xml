@@ -57,6 +57,10 @@
             android:name="com.hack3d.truckit.ClientBidDetail"
             android:label="@string/title_activity_client_bid_detail" >
         </activity>
+        <activity
+            android:name="com.hack3d.truckit.SubmitBidActivity"
+            android:label="@string/title_submit_bid" >
+        </activity>
     </application>
 
 </manifest>
