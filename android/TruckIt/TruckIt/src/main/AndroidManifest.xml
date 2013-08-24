@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.hack3d.truckit.RegisterActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize|stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,11 +52,6 @@
         <activity
             android:name="com.hack3d.truckit.CreateJobActivity"
             android:label="@string/title_activity_create_job" >
-        </activity>
-        <activity
-            android:name="com.hack3d.truckit.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
             android:name="com.hack3d.truckit.ClientBidDetail"
