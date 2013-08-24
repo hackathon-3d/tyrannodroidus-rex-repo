@@ -21,5 +21,6 @@
     <string name="title_activity_hauler_loads">Hauler Loads</string>
     <string name="button_hauler_profile">Profile</string>
     <string name="button_hauler_loads">Loads</string>
-
+    <string name="pref_file">com.hack3d.truckit.PREF_FILE</string>
+    <string name="name_pref">com.hack3d.truckit.user_id</string>
 </resources>
