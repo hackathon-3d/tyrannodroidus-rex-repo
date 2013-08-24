@@ -54,11 +54,13 @@ public class CreateJobActivity extends Activity {
 
     public void createLoad(View view){
         //make REST call
-        createLoadTask = new CreateLoadTask();
-        createLoadTask.execute((Void) null);
-        SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
-        Intent intent = new Intent(this, ClientMainActivity.class);
-        startActivity(intent);
+        if (validate()){
+            createLoadTask = new CreateLoadTask();
+            createLoadTask.execute((Void) null);
+            SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
+            Intent intent = new Intent(this, ClientMainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public class CreateLoadTask extends AsyncTask<Void, Void, Boolean> {
@@ -108,20 +110,76 @@ public class CreateJobActivity extends Activity {
         }
     }
 
+    private boolean validate(){
+        boolean result = true;
+        if (description.getText().toString().length() == 0){
+            description.setError("This field is required");
+            result = false;
+        }
+        if (start.getText().toString().length() == 0){
+            start.setError("This field is required");
+            result = false;
+        }
+        if (!start.getText().toString().matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\\\d\\\\d)")){
+            start.setError("This field must be in MM/DD/YYYY format");
+            result = false;
+        }
+        if (end.getText().toString().length() == 0){
+            end.setError("This field is required");
+            result = false;
+        }
+        if (!end.getText().toString().matches("(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\\\d\\\\d)")){
+            end.setError("This field must be in MM/DD/YYYY format");
+            result = false;
+        }
+        if (pickupAddress.getText().toString().length() == 0){
+            pickupAddress.setError("This field is required");
+            result = false;
+        }
+        if (pickupCity.getText().toString().length() == 0){
+            pickupCity.setError("This field is required");
+            result = false;
+        }
+        if (pickupState.getText().toString().length() == 0){
+            pickupState.setError("This field is required");
+            result = false;
+        }
+        if (pickupZip.getText().toString().length() == 0){
+            pickupZip.setError("This field is required");
+            result = false;
+        }
+
+        if (dropoffAddress.getText().toString().length() == 0){
+            dropoffAddress.setError("This field is required");
+            result = false;
+        }
+        if (dropoffCity.getText().toString().length() == 0){
+            dropoffCity.setError("This field is required");
+            result = false;
+        }
+        if (dropoffState.getText().toString().length() == 0){
+            dropoffState.setError("This field is required");
+            result = false;
+        }
+        if (dropoffZip.getText().toString().length() == 0){
+            dropoffZip.setError("This field is required");
+            result = false;
+        }
+        return result;
+    }
     private void setUpView(){
         description = (EditText) findViewById(R.id.create_job_description);
-        start = (EditText) findViewById(R.id.create_job_start_input);
-        end = (EditText) findViewById(R.id.create_job_end_input);
-        
-        pickupAddress = (EditText) findViewById(R.id.create_job_pickup_address);
-        pickupCity = (EditText) findViewById(R.id.create_job_pickup_city);
-        pickupState = (EditText) findViewById(R.id.create_job_pickup_state);
-        pickupZip = (EditText) findViewById(R.id.create_job_pickup_zip);
-
-        dropoffAddress = (EditText) findViewById(R.id.create_job_dropoff_address);
-        dropoffCity = (EditText) findViewById(R.id.create_job_dropoff_city);
-        dropoffState = (EditText) findViewById(R.id.create_job_dropoff_state);
         dropoffZip = (EditText) findViewById(R.id.create_job_dropoff_zip);
+        dropoffState = (EditText) findViewById(R.id.create_job_dropoff_state);
+        dropoffCity = (EditText) findViewById(R.id.create_job_dropoff_city);
+        dropoffAddress = (EditText) findViewById(R.id.create_job_dropoff_address);
+        pickupZip = (EditText) findViewById(R.id.create_job_pickup_zip);
+        pickupState = (EditText) findViewById(R.id.create_job_pickup_state);
+        pickupCity = (EditText) findViewById(R.id.create_job_pickup_city);
+        pickupAddress = (EditText) findViewById(R.id.create_job_pickup_address);
+        end = (EditText) findViewById(R.id.create_job_end_input);
+        start = (EditText) findViewById(R.id.create_job_start_input);
+
 
     }
 }

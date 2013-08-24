@@ -103,3 +103,6 @@ public class BidAdapter extends ArrayAdapter<Bid> {
         }
     }
 }
+
+
+

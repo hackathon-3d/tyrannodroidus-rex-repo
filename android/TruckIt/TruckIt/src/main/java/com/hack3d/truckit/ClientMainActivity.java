@@ -72,6 +72,7 @@ public class ClientMainActivity extends Activity {
 //        listView.setAdapter(adapter);
         adapter = new BidAdapter(this, R.layout.bid_row, new ArrayList<Bid>(),"foo");
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(listener);
 
     }
 
@@ -82,6 +83,7 @@ public class ClientMainActivity extends Activity {
 
     private void getJobDetailByJobId(){
         //call to service with job id
+
         jobDetail.setText("This is the job description text. This is the job description text. This is the job description text. This is the job description text. This is the job description text.");
         start.setText("START");
         end.setText("END");
@@ -99,7 +101,7 @@ public class ClientMainActivity extends Activity {
         //launch a bid detail view
 
         //SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
-        Intent intent = new Intent(this, ClientMainActivity.class);
+        Intent intent = new Intent(this, ClientBidDetail.class);
         intent.putExtra(ClientBidDetail.LOAD_ID, load_id);
         startActivity(intent);
     }
@@ -149,6 +151,7 @@ public class ClientMainActivity extends Activity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             Bid bidItem = (Bid) parent.getItemAtPosition(position);
             getBidDetail(bidItem.getId());
+
         }
     };
 

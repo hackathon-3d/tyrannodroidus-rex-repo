@@ -47,13 +47,6 @@ public class ClientPastJobsActivity extends Activity {
         for (int i = 0; i<5; i++){
             listItems.add(getRandJob());
         }
-
-
-
-
-//        listItems.add("Bid 1");
-//        listItems.add("Bid 2");
-//        listItems.add("Bid 3");
     }
 
     int min = 0;
