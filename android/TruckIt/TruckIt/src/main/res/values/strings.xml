@@ -18,6 +18,7 @@
     <string name="title_activity_client_main">Client Main</string>
     <string name="title_activity_hauler_home">Hauler Home</string>
     <string name="title_activity_hauler_profile">Hauler Profile</string>
+    <string name="title_activity_hauler_loads">Hauler Loads</string>
     <string name="button_hauler_profile">Profile</string>
     <string name="button_hauler_loads">Loads</string>
 
