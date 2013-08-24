@@ -20,10 +20,10 @@ import java.util.List;
 public class ClientMainActivity extends Activity {
 
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
-    ArrayList<String> listItems=new ArrayList<String>();
+    ArrayList<Bid> listItems=new ArrayList<Bid>();
 
     //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<Bid> adapter;
 
     private TextView jobDetailInput;
 
@@ -66,10 +66,12 @@ public class ClientMainActivity extends Activity {
         start = (TextView) findViewById(R.id.start);
         end = (TextView) findViewById(R.id.end);
 
-        adapter = new ArrayAdapter<String>(this,
+        adapter = new ArrayAdapter<Bid>(this,
                 android.R.layout.simple_list_item_1, listItems);
         ListView listView = (ListView) findViewById(R.id.bids_list_view);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(listener);
+
     }
 
     private void setUpMocks(){
@@ -79,6 +81,7 @@ public class ClientMainActivity extends Activity {
 
     private void getJobDetailByJobId(){
         //call to service with job id
+
         jobDetail.setText("This is the job description text. This is the job description text. This is the job description text. This is the job description text. This is the job description text.");
         start.setText("START");
         end.setText("END");
@@ -96,7 +99,7 @@ public class ClientMainActivity extends Activity {
         //launch a bid detail view
 
         //SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
-        Intent intent = new Intent(this, ClientMainActivity.class);
+        Intent intent = new Intent(this, ClientBidDetail.class);
         intent.putExtra(ClientBidDetail.LOAD_ID, load_id);
         startActivity(intent);
     }
@@ -129,7 +132,7 @@ public class ClientMainActivity extends Activity {
         @Override
         protected void onPostExecute(final Boolean success) {
             for (Bid bid: bidList){
-                listItems.add(bid.toString());
+                listItems.add(bid);
             }
             adapter.notifyDataSetChanged();
             getLoadTask = null;
@@ -146,6 +149,7 @@ public class ClientMainActivity extends Activity {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             Bid bidItem = (Bid) parent.getItemAtPosition(position);
             getBidDetail(bidItem.getId());
+
         }
     };
 

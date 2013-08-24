@@ -29,6 +29,6 @@
     <string name="display_name_pref">com.hack3d.truckit.display_name</string>
     <string name="title_activity_create_job">Create a Job</string>
     <string name="title_activity_client_bid_detail">Bid Details</string>
-    <string name="pickup_by">Pick Up By</string>
-    <string name="dropoff_by">Drop Off By</string>
+    <string name="pickup_by">Pick Up By (MM/DD/YYYY)</string>
+    <string name="dropoff_by">Drop Off By (MM/DD/YYYY)</string>
 </resources>

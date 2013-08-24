@@ -15,7 +15,7 @@ public class HaulerHome extends Activity {
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.hauler_main);
-        TextView displayName = (TextView)findViewById(R.id.hauler_display_name);
+        TextView displayName = (TextView)findViewById(R.id.hauler_user_name);
         displayName.setText(SharedPreferencesUtil.getInstance().getDisplayName(this));
         TextView t = (TextView)findViewById(R.id.hauler_user_name);
         t.setText(SharedPreferencesUtil.getInstance().getUserId(this));
