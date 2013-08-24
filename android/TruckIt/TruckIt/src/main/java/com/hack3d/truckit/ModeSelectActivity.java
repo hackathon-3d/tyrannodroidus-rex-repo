@@ -37,5 +37,10 @@ public class ModeSelectActivity extends Activity {
         Intent intent = new Intent(this, ClientPastJobsActivity.class);
         startActivity(intent);
     }
+
+    public void createLoad(View view){
+        Intent intent = new Intent(this, CreateJobActivity.class);
+        startActivity(intent);
+    }
     
 }
