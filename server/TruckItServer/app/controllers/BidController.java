@@ -21,7 +21,7 @@ import java.util.List;
 public class BidController extends Controller {
 
     public static Result getBids(String userId) {
-        List<Bid> bids = new ArrayList<Bid>();
+        List<Bid> bids = Bid.getBids(userId);
         Load load = new Load();
         load.setLoadDescription("a really big load");
         load.setCustomerId("customer@customer.com");
@@ -31,7 +31,7 @@ public class BidController extends Controller {
         biddingUser.setUserId("bidder1@bid.com");
         biddingUser.setHaulerDisplayName("Bidder 1");
         bid.setBiddingUser(biddingUser);
-        bid.setPrice(25.00);
+        bid.setPrice(15.00);
         bid.setLoad(load);
         bids.add(bid);
 
@@ -40,7 +40,7 @@ public class BidController extends Controller {
         biddingUser.setUserId("bidder2@bid.com");
         biddingUser.setHaulerDisplayName("Bidder 2");
         bid.setBiddingUser(biddingUser);
-        bid.setPrice(15.00);
+        bid.setPrice(25.00);
         bid.setLoad(load);
         bids.add(bid);
 
@@ -69,7 +69,7 @@ public class BidController extends Controller {
         List<Job> jobs = Job.getJobs(biddingUser);
 
         // Compute the average rating
-        int rating = 0;
+        int rating = 4;
         if (jobs.size() > 0) {
             int ratingSum = 0;
             for (Job job : jobs) {

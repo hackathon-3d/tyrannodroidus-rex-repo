@@ -1,6 +1,8 @@
 package com.hack3d.truckit;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +52,8 @@ public class BidAdapter extends ArrayAdapter<Bid> {
             tvHaulerName.setText(bid.getBiddingUser().getHaulerDisplayName());
 
             RatingBar rbHaulerRating = (RatingBar)row.findViewById(R.id.rbHaulerRating);
-//            rbHaulerRating.setNumStars(bid.getBiddingUser().);
+//            rbHaulerRating.setRating(bid.getBiddingUser().getHaulerRating());
+            rbHaulerRating.setRating(position/1.2f + 3f);
 
             ImageView ivAccept = (ImageView)row.findViewById(R.id.ivAccept);
             ivAccept.setOnClickListener(new BidAcceptedListener(bid));
@@ -60,8 +63,28 @@ public class BidAdapter extends ArrayAdapter<Bid> {
         return row;
     }
 
+
+
     private void onAcceptBid(Bid bid) {
         biddingInProgress = false;
+        AlertDialog.Builder builder = new AlertDialog.Builder(super.getContext());
+        // Add the buttons
+        builder.setTitle("Accept Bid")
+                .setMessage("Do you want to accept the bid for $" + bid.getPrice() + "?")
+                .setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        biddingInProgress = false;
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        biddingInProgress = true;
+                }
+        });
+
+        // Create the AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private class BidUpdateAsyncTask extends AsyncTask<Void,Void,Void> {
@@ -96,9 +119,11 @@ public class BidAdapter extends ArrayAdapter<Bid> {
 
         @Override
         public void onClick(View view) {
-            onAcceptBid(this.acceptedBid);
             ImageView iv = (ImageView)view;
-            iv.setImageResource(R.drawable.edit_finish_select);
+            onAcceptBid(this.acceptedBid);
+            if (!biddingInProgress) {
+                iv.setImageResource(R.drawable.edit_finish_select);
+            }
         }
     }
 }
