@@ -4,3 +4,4 @@
 /android/TruckIt/gradle/
 /android/TruckIt/gradlew
 /android/TruckIt/gradlew.bat
+/server/TruckItServer/conf/evolutions/
