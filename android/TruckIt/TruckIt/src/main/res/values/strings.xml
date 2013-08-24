@@ -15,5 +15,8 @@
     <string name="past_jobs">Past Jobs</string>
     <string name="title_activity_client_past_jobs">Past Jobs</string>
     <string name="title_activity_hauler_home">Hauler Home</string>
+    <string name="title_activity_hauler_profile">Hauler Profile</string>
+    <string name="button_hauler_profile">Profile</string>
+    <string name="button_hauler_loads">Loads</string>
 
 </resources>
