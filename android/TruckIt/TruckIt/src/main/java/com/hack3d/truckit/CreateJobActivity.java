@@ -39,6 +39,8 @@ public class CreateJobActivity extends Activity implements TextWatcher{
     
     private CreateLoadTask createLoadTask;
 
+    private Load load;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +59,9 @@ public class CreateJobActivity extends Activity implements TextWatcher{
     public void createLoad(View view){
         //make REST call
         if (validate()){
-            createLoadTask = new CreateLoadTask();
+            createLoadTask = new CreateLoadTask(this);
             createLoadTask.execute((Void) null);
-            SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
-            Intent intent = new Intent(this, ClientMainActivity.class);
-            startActivity(intent);
+
         }
     }
 
@@ -77,7 +77,20 @@ public class CreateJobActivity extends Activity implements TextWatcher{
     @Override
     final public void onTextChanged(CharSequence s, int start, int before, int count) { /* Don't care */ }
 
+    public void  processResults(Load load){
+        SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
+        Intent intent = new Intent(this, ClientMainActivity.class);
+        //Bundle b = new Bundle();
+        //b.putSerializable("load", load);
+        intent.putExtra("load", load);
+        startActivity(intent);
+    }
     public class CreateLoadTask extends AsyncTask<Void, Void, Boolean> {
+        public CreateLoadTask(CreateJobActivity a){
+            this.a = a;
+        }
+        public Load myload;
+        private CreateJobActivity a;
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
@@ -85,10 +98,10 @@ public class CreateJobActivity extends Activity implements TextWatcher{
              SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
 
 
-            Load load = new Load();
-            load.setCustomerId("1234");
-            load.setDropoffBy(sdf.format(new Date()));
-            load.setPickupBy(sdf.format(new Date()));
+            myload = new Load();
+            myload.setCustomerId("1234");
+            myload.setDropoffBy(sdf.format(new Date()));
+            myload.setPickupBy(sdf.format(new Date()));
 
             Location pickupLocation = new Location();
             pickupLocation.setStreet(pickupAddress.getText().toString());
@@ -96,7 +109,7 @@ public class CreateJobActivity extends Activity implements TextWatcher{
             pickupLocation.setState(pickupState.getText().toString());
             pickupLocation.setZip(Integer.valueOf(pickupZip.getText().toString()));
 
-            load.setPickupLocation(pickupLocation);
+            myload.setPickupLocation(pickupLocation);
 
             Location dropoffLocation = new Location();
             dropoffLocation.setStreet(dropoffAddress.getText().toString());
@@ -104,15 +117,18 @@ public class CreateJobActivity extends Activity implements TextWatcher{
             dropoffLocation.setState(dropoffState.getText().toString());
             dropoffLocation.setZip(Integer.valueOf(dropoffZip.getText().toString()));
 
-            load.setDropoffLocation(dropoffLocation);
+            myload.setDropoffLocation(dropoffLocation);
+            myload.setLoadDescription(description.getText().toString());
 
-            TruckItClient.createLoad(load);
+            TruckItClient.createLoad(myload);
             return true;
         }
 
         @Override
         protected void onPostExecute(final Boolean success) {
+            //load = createLoadTask.myload;
             createLoadTask = null;
+            a.processResults(myload);
             //showProgress(false);
             //showModeSelect();
         }

@@ -97,6 +97,6 @@ public class Load implements Serializable{
     @Override
     public String toString(){
         return this.getCustomerId() + " - " + this.getPickupLocation().getStreet() + " " +
-                this.getPickupLocation().getCity() + ", " + this.getPickupLocation().getState();
+                this.getPickupLocation().getCity() + ", " + this.getPickupLocation().getState() + ", " + this.getLoadDescription();
     }
 }

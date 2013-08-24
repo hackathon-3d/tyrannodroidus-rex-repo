@@ -34,6 +34,7 @@ public class RegisterActivity extends Activity {
      */
     public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
     public static final String EXTRA_DISPLAYNAME = "com.example.android.authenticatordemo.extra.DISPLAY_NAME";
+    public static String DB_FILEPATH = "/data/data/{package_name}/databases/database.db";
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.

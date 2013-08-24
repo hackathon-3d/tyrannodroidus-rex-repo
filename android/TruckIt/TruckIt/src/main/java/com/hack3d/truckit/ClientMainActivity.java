@@ -41,11 +41,14 @@ public class ClientMainActivity extends Activity {
 
     List<Bid> bidList=new ArrayList<Bid>();
 
+    private Load load;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        load =(Load) getIntent().getSerializableExtra("load");
         setContentView(R.layout.client_main);
         setUpView();
         setUpMocks();
@@ -83,10 +86,11 @@ public class ClientMainActivity extends Activity {
 
     private void getJobDetailByJobId(){
         //call to service with job id
-
-        jobDetail.setText("This is the job description text. This is the job description text. This is the job description text. This is the job description text. This is the job description text.");
-        start.setText("START");
-        end.setText("END");
+        if (load != null){
+            jobDetail.setText(load.getLoadDescription());
+            start.setText(load.getPickupBy());
+            end.setText(load.getDropoffBy());
+        }
     }
 
 //    private void getBidsByJobId(){
