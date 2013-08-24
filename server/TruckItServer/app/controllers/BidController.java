@@ -29,6 +29,7 @@ public class BidController extends Controller {
         User biddingUser = new User();
         biddingUser.setUserId("bidder1@bid.com");
         biddingUser.setHaulerDisplayName("Bidder 1");
+        bid.setBiddingUser(biddingUser);
         bid.setPrice(25.00);
         bid.setLoad(load);
         bids.add(bid);
@@ -37,6 +38,7 @@ public class BidController extends Controller {
         biddingUser = new User();
         biddingUser.setUserId("bidder2@bid.com");
         biddingUser.setHaulerDisplayName("Bidder 2");
+        bid.setBiddingUser(biddingUser);
         bid.setPrice(15.00);
         bid.setLoad(load);
         bids.add(bid);
@@ -45,6 +47,7 @@ public class BidController extends Controller {
         biddingUser = new User();
         biddingUser.setUserId("bidder3@bid.com");
         biddingUser.setHaulerDisplayName("Bidder 3");
+        bid.setBiddingUser(biddingUser);
         bid.setPrice(18.00);
         bid.setLoad(load);
         bids.add(bid);
@@ -53,6 +56,8 @@ public class BidController extends Controller {
     }
 
     public static Result createBid() {
+        Bid newBid = Json.fromJson(request().body().asJson(),Bid.class);
+        newBid.save();
         return ok();
     }
 
