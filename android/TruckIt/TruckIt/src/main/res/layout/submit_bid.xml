@@ -1,21 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Customer Name"
             android:id="@+id/submit_bid_customer"
             android:layout_gravity="center"/>
-    <TextView android:id="@+id/submi_bid_pickup_location"
+    </LinearLayout>
+    <TextView android:id="@+id/submit_bid_pickup_date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Pickup Date"
+        android:layout_gravity="center"/>
+    <TextView android:id="@+id/submit_bid_pickup_street"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Pickup Address"
+        android:layout_gravity="center"/>
+    <LinearLayout
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center">
+        <TextView android:id="@+id/submit_bid_pickup_city"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Pickup City"
+                  android:layout_gravity="center"
+                  android:layout_marginRight="12dp"/>
+        <TextView android:id="@+id/submit_bid_pickup_state"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Pickup State"
+                  android:layout_gravity="center"
+                  android:layout_marginRight="12dp"/>
+        <TextView android:id="@+id/pickup_zip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Pickup Zip"
+                  android:layout_gravity="center"/>
+    </LinearLayout>
+    <TextView android:id="@+id/submit_bid_dest_date"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
-              android:text="Pickup Address"
+              android:text="Pickup Date"
               android:layout_gravity="center"/>
+    <TextView android:id="@+id/submit_bid_dest_street"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:text="Destination Address"
+              android:layout_gravity="center"/>
+    <LinearLayout
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginBottom="60dp">
+        <TextView android:id="@+id/submit_bid_dest_city"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Pickup City"
+                  android:layout_gravity="center"
+                  android:layout_marginRight="12dp"/>
+        <TextView android:id="@+id/submit_bid_dest_state"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Pickup State"
+                  android:layout_gravity="center"
+                  android:layout_marginRight="12dp"/>
+        <TextView android:id="@+id/dest_zip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="Destination Zip"
+                  android:layout_gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submit_bid_price"
+                android:layout_gravity="left|center_vertical"
+                android:hint="What is your bid?"/>
+        <Button android:id="@+id/submit_bid_button"
+                android:layout_width="96pt"
+                android:layout_height="wrap_content"
+                android:text="SUBMIT BID"
+                android:onClick="haulerProfile"/>
+    </LinearLayout>
 
 </LinearLayout>
