@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by johngyselinck on 8/24/13.
@@ -14,6 +15,8 @@ public class HaulerHome extends Activity {
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.hauler_main);
+        TextView t = (TextView)findViewById(R.id.hauler_user_name);
+        t.setText(SharedPreferencesUtil.getUserId(this));
     }
 
     //When clicking on the Profile button

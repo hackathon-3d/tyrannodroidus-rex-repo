@@ -49,6 +49,10 @@
             android:label="@string/title_activity_hauler_loads" >
         </activity>
         <activity
+            android:name="com.hack3d.truckit.CreateJobActivity"
+            android:label="@string/title_activity_create_job" >
+        </activity>
+        <activity
             android:name="com.hack3d.truckit.RegisterActivity"
             android:label="@string/title_activity_register"
             android:windowSoftInputMode="adjustResize|stateVisible" >

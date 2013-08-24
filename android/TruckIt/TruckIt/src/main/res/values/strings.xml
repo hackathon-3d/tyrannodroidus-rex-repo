@@ -7,6 +7,7 @@
     <string name="description">Description</string>
     <string name="start">Start Time</string>
     <string name="end">End Time</string>
+    <string name="create_load">Create a Load</string>
     <string name="have_load">Have a Load</string>
     <string name="haul_load">Haul a Load</string>
     <string name="details">Details</string>
@@ -24,4 +25,7 @@
     <string name="title_activity_mode_select">Select Mode</string>
     <string name="pref_file">com.hack3d.truckit.PREF_FILE</string>
     <string name="name_pref">com.hack3d.truckit.user_id</string>
+    <string name="load_pref">com.hack3d.truckit.load_id</string>
+    <string name="title_activity_create_job">Create a Job</string>
+
 </resources>

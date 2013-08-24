@@ -4,6 +4,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center">
+
     <Button android:id="@+id/aclient_button"
             android:layout_width="96pt"
             android:layout_height="wrap_content"
@@ -15,4 +16,10 @@
             android:layout_height="wrap_content"
             android:text="@string/haul_load"
             android:onClick="haulerHome"/>
+    <Button android:id="@+id/create_load_button"
+            android:layout_below="@id/provider_button"
+            android:layout_width="96pt"
+            android:layout_height="wrap_content"
+            android:text="@string/create_load"
+            android:onClick="createLoad"/>
 </RelativeLayout>
