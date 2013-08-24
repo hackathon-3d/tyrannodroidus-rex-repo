@@ -1,1 +1,6 @@
 /android/TruckIt/TruckIt/build/
+/android/TruckIt/.gradle/
+/android/TruckIt/.idea/workspace.xml
+/android/TruckIt/gradle/
+/android/TruckIt/gradlew
+/android/TruckIt/gradlew.bat
