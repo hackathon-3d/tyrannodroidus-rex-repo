@@ -3,7 +3,14 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET         /                    controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
+
+# RESTFul User Services
+GET         /user/:id            controllers.UserController.getUser(id: String)
+POST        /user                controllers.UserController.createUser()
+
+GET         /load/:userId        controllers.LoadController.getLoads(userId: String)
+POST        /load                controllers.LoadController.createLoad()
