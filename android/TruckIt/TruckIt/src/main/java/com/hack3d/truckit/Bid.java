@@ -56,4 +56,8 @@ public class Bid {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public String toString(){
+        return biddingUser.getHaulerDisplayName() + " - $" + price;
+    }
 }

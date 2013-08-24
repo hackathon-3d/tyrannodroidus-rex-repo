@@ -1,6 +1,7 @@
 package com.hack3d.truckit;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,8 +11,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ClientMainActivity extends Activity {
 
@@ -32,6 +35,11 @@ public class ClientMainActivity extends Activity {
     private TextView start;
 
     private TextView end;
+
+    private GetLoadTask getLoadTask;
+
+    List<Bid> bidList=new ArrayList<Bid>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +84,18 @@ public class ClientMainActivity extends Activity {
 
     private void getBidsByJobId(){
 
-        listItems.add("Joe Blow - $25");
-        listItems.add("Bob Smith - $35");
-        listItems.add("Mary Jones - $30");
+        getLoadTask = new GetLoadTask();
+        getLoadTask.execute((Void) null);
 
     }
 
 
-    private void getBidDetail(){
+    public void getBidDetail(View view){
         //launch a bid detail view
+
+        SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
+        Intent intent = new Intent(this, ClientMainActivity.class);
+        startActivity(intent);
     }
 
 
@@ -100,6 +111,32 @@ public class ClientMainActivity extends Activity {
 
         Intent intent = new Intent(this, ClientPastJobsActivity.class);
         startActivity(intent);
+    }
+
+
+
+    public class GetLoadTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            // TODO: attempt authentication against a network service.
+            bidList = TruckItClient.getBids("TEST");
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            for (Bid bid: bidList){
+                listItems.add(bid.toString());
+            }
+            adapter.notifyDataSetChanged();
+            getLoadTask = null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            getLoadTask = null;
+            //showProgress(false);
+        }
     }
 
 

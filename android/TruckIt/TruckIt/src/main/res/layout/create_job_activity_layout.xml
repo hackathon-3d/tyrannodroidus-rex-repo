@@ -71,7 +71,9 @@
                     android:hint="State"
                     android:layout_alignParentTop="false"
                     android:layout_below="@+id/create_job_pickup_address"
-                    android:layout_toLeftOf="@+id/create_job_pickup_zip"/>
+                    android:layout_toLeftOf="@+id/create_job_pickup_zip"
+                    android:inputType="text"
+                    android:maxLength="2"/>
 
             <EditText
                     android:layout_width="wrap_content"
@@ -91,7 +93,10 @@
                     android:layout_alignParentRight="true"
                     android:hint="ZIP"
                     android:layout_alignBaseline="@+id/create_job_pickup_city"
-                    android:minWidth="80dp"/>
+                    android:minWidth="80dp"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:longClickable="false"/>
         </RelativeLayout>
 
         <TextView
@@ -126,7 +131,9 @@
                     android:hint="State"
                     android:layout_alignParentTop="false"
                     android:layout_below="@+id/create_job_pickup_address"
-                    android:layout_toLeftOf="@+id/create_job_dropoff_zip"/>
+                    android:layout_toLeftOf="@+id/create_job_dropoff_zip"
+                    android:inputType="text"
+                    android:maxLength="2"/>
 
             <EditText
                     android:layout_width="wrap_content"
@@ -146,7 +153,9 @@
                     android:layout_alignParentRight="true"
                     android:hint="ZIP"
                     android:layout_alignBaseline="@+id/create_job_dropoff_city"
-                    android:minWidth="80dp"/>
+                    android:minWidth="80dp"
+                    android:maxLength="5"
+                    android:inputType="number"/>
 
         </RelativeLayout>
 
@@ -156,7 +165,8 @@
                 android:text="Create Load"
                 android:id="@+id/button_create_load"
                 android:layout_gravity="center"
-                android:onClick="createLoad"/>
+                android:onClick="createLoad"
+                android:clickable="true"/>
     </LinearLayout>
 
 </RelativeLayout>
