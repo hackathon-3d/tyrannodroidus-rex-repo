@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+        >
+    <TextView android:id="@+id/hauler_sample"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:text="Hauler Home"
+            />
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dip"
+                  android:layout_weight="1"
+                  android:gravity="center|bottom">
+        <Button android:id="@+id/hauler_profile_button"
+                android:layout_width="96pt"
+                android:layout_height="wrap_content"
+                android:text="@string/button_hauler_profile"
+                android:onClick="haulerProfile"/>
+        <Button android:id="@+id/provider_button"
+                android:layout_below="@+id/hauler_loads_button"
+                android:layout_width="96pt"
+                android:layout_height="wrap_content"
+                android:text="@string/button_hauler_loads"
+                android:onClick="haulerProfile"/>
+    </LinearLayout>
+
+</LinearLayout>
