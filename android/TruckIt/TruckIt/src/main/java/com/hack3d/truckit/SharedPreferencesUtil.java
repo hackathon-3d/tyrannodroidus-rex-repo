@@ -50,7 +50,7 @@ public class SharedPreferencesUtil {
 
     public static String getUserId(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
-        String the_name = sharedPreferences.getString(context.getString(R.string.name_pref), "no name");
+        String the_name = sharedPreferences.getString(context.getString(R.string.name_pref), "");
         return the_name;
     }
 
@@ -59,6 +59,26 @@ public class SharedPreferencesUtil {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(context.getString(R.string.name_pref), user_id);
         editor.commit();
+    }
+
+    public static String getDisplayName(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
+        String the_name = sharedPreferences.getString(context.getString(R.string.display_name_pref), "");
+        return the_name;
+    }
+
+    public static void setDisplayName(Context context, String display_name){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.display_name_pref), display_name);
+        editor.commit();
+    }
+
+    public static void clearPreferences(Context context){
+        SharedPreferences prefs = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.clear();
+        edit.commit();
     }
 
 }

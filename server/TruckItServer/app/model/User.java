@@ -34,7 +34,7 @@ public class User extends Model {
     private String haulerState;
 
     @Column
-    private List<Integer> haulerZipCodes;
+    private List<Location> haulerLocations;
 
     public static User findById(String id)
     {
@@ -80,12 +80,12 @@ public class User extends Model {
         this.haulerState = haulerState;
     }
 
-    public List<Integer> getHaulerZipCodes() {
-        return haulerZipCodes;
+    public List<Location> getHaulerLocations() {
+        return haulerLocations;
     }
 
-    public void setHaulerZipCodes(List<Integer> haulerZipCodes) {
-        this.haulerZipCodes = haulerZipCodes;
+    public void setHaulerLocations(List<Location> haulerLocations) {
+        this.haulerLocations = haulerLocations;
     }
 
 }
