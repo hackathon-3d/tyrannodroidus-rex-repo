@@ -12,9 +12,6 @@ public class ModeSelectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_select);
-// Testing
-//        Intent intent = new Intent(this, ClientMainActivity.class);
-//        startActivity(intent);
     }
 
 
@@ -28,6 +25,16 @@ public class ModeSelectActivity extends Activity {
     //When clicking on the Haul a Load button
     public void haulerHome(View view){
         Intent intent = new Intent(this, HaulerHome.class);
+        startActivity(intent);
+    }
+
+    public void clientMain(View view){
+        Intent intent = new Intent(this, ClientMainActivity.class);
+        startActivity(intent);
+    }
+
+    public void viewPastJobs(View view){
+        Intent intent = new Intent(this, ClientPastJobsActivity.class);
         startActivity(intent);
     }
     

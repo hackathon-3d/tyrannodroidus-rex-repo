@@ -7,7 +7,8 @@
     <Button android:id="@+id/aclient_button"
             android:layout_width="96pt"
             android:layout_height="wrap_content"
-            android:text="@string/have_load"/>
+            android:text="@string/have_load"
+            android:onClick="clientMain"/>
     <Button android:id="@+id/provider_button"
             android:layout_below="@id/aclient_button"
             android:layout_width="96pt"
