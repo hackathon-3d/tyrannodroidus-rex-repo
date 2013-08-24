@@ -38,6 +38,10 @@
             android:name="com.hack3d.truckit.HaulerProfile"
             android:label="@string/title_activity_hauler_profile" >
         </activity>
+        <activity
+            android:name="com.hack3d.truckit.HaulerLoads"
+            android:label="@string/title_activity_hauler_loads" >
+        </activity>
     </application>
 
 </manifest>
