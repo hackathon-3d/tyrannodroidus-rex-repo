@@ -18,3 +18,7 @@ GET         /load/test           controllers.LoadController.createTestLoad()
 
 GET         /bid/:userId         controllers.BidController.getBids(userId: String)
 POST        /bid                 controllers.BidController.createBid()
+
+GET         /job/:userId         controllers.JobController.getJobs(userId: String)
+POST        /job                 controllers.JobController.createJob()
+PUT         /job                 controllers.JobController.updateJob()
