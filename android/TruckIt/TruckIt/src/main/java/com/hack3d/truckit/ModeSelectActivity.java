@@ -1,6 +1,8 @@
 package com.hack3d.truckit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -12,6 +14,7 @@ public class ModeSelectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_select);
+        SharedPreferencesUtil.setUserId(this, "My User");
     }
 
 
@@ -38,9 +41,11 @@ public class ModeSelectActivity extends Activity {
         startActivity(intent);
     }
 
+
     public void createLoad(View view){
         Intent intent = new Intent(this, CreateJobActivity.class);
         startActivity(intent);
     }
+
     
 }
