@@ -1,11 +1,15 @@
 package model;
 
+import com.avaje.ebean.ExpressionList;
+import com.avaje.ebean.Query;
 import play.db.ebean.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,16 +20,21 @@ import java.util.Date;
  */
 @Entity
 public class Load extends Model {
+
+    public static Finder<String,Load> find = new Finder<String,Load>(
+            String.class, Load.class
+    );
+
     @Id
     public int id;
 
     @Column
     private String customerId;
 
-    @Column
+    @OneToOne
     private Location pickupLocation;
 
-    @Column
+    @OneToOne
     private Location dropoffLocation;
 
     @Column
@@ -36,6 +45,25 @@ public class Load extends Model {
 
     @Column
     private Date dropoffBy;
+
+    public static List<Load> getAllLoads() {
+        return find.all();
+    }
+
+    public static List<Load> getLoadsByCityAndState(String city, String state) {
+        ExpressionList<Load> el = find
+                .where()
+                    .disjunction()
+                        .conjunction()
+                            .eq("pickupLocation.city", city)
+                            .eq("pickupLocation.state", state)
+                            .endJunction()
+                       .conjunction()
+                            .eq("pickupLocation.city", city)
+                            .eq("pickupLocation.state", state)
+                            .endJunction();
+        return el.findList();
+    }
 
     public int getId() {
         return id;
