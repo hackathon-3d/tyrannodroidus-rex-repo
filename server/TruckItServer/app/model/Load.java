@@ -41,10 +41,10 @@ public class Load extends Model {
     private String loadDescription;
 
     @Column
-    private Date pickupBy;
+    private String pickupBy;
 
     @Column
-    private Date dropoffBy;
+    private String dropoffBy;
 
     public static List<Load> getAllLoads() {
         return find.all();
@@ -55,12 +55,12 @@ public class Load extends Model {
                 .where()
                     .disjunction()
                         .conjunction()
-                            .eq("pickupLocation.city", city)
-                            .eq("pickupLocation.state", state)
+                            .like("pickupLocation.city", city)
+                            .like("pickupLocation.state", state)
                             .endJunction()
                        .conjunction()
-                            .eq("pickupLocation.city", city)
-                            .eq("pickupLocation.state", state)
+                            .like("pickupLocation.city", city)
+                            .like("pickupLocation.state", state)
                             .endJunction();
         return el.findList();
     }
@@ -101,19 +101,19 @@ public class Load extends Model {
         this.loadDescription = loadDescription;
     }
 
-    public Date getPickupBy() {
+    public String getPickupBy() {
         return pickupBy;
     }
 
-    public void setPickupBy(Date pickupBy) {
+    public void setPickupBy(String pickupBy) {
         this.pickupBy = pickupBy;
     }
 
-    public Date getDropoffBy() {
+    public String getDropoffBy() {
         return dropoffBy;
     }
 
-    public void setDropoffBy(Date dropoffBy) {
+    public void setDropoffBy(String dropoffBy) {
         this.dropoffBy = dropoffBy;
     }
 }

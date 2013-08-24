@@ -15,3 +15,6 @@ POST        /user                controllers.UserController.createUser()
 GET         /load                controllers.LoadController.getLoads()
 POST        /load                controllers.LoadController.createLoad()
 GET         /load/test           controllers.LoadController.createTestLoad()
+
+GET         /bid/:userId        controllers.BidController.getBids(userId: String)
+POST        /bid                controllers.BidController.createBid()

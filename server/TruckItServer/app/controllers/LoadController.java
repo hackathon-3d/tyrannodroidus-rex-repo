@@ -49,7 +49,7 @@ public class LoadController extends Controller {
     public static Result createTestLoad() {
         Load load = new Load();
         load.setCustomerId("customerId");
-        load.setDropoffBy(new Date());
+        load.setDropoffBy("today");
         Location pickupLocation = new Location();
         pickupLocation.setStreet("pickup st.");
         pickupLocation.setCity("Charleston");

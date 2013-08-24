@@ -16,6 +16,7 @@ public class TruckItClient {
     private static final String CREATE_USER_URL = "/user";
     private static final String CREATE_LOAD_URL = "/load";
     private static final String GET_LOADS_URL = "/load";
+    private static final String GET_BIDS_URL = "/bid";
 
 
     public static void createUser(User user) {
@@ -38,6 +39,16 @@ public class TruckItClient {
         Type listType = new TypeToken<ArrayList<Load>>() {
         }.getType();
         return new Gson().fromJson(loadsJson, listType);
+    }
+
+    public static List<Bid> getBids(String userId) {
+        StringBuilder sbUrl = new StringBuilder(getUrl(GET_BIDS_URL));
+        sbUrl.append("/");
+        sbUrl.append(userId);
+        String bidsJson = HttpHelper.getJson(sbUrl.toString());
+        Type listType = new TypeToken<ArrayList<Bid>>() {
+        }.getType();
+        return new Gson().fromJson(bidsJson, listType);
     }
 
     private static String getUrl(String subUrl) {
