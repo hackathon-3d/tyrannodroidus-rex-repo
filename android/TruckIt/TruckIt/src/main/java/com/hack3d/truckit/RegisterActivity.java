@@ -33,6 +33,7 @@ public class RegisterActivity extends Activity {
      * The default email to populate the email field with.
      */
     public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
+    public static final String EXTRA_DISPLAYNAME = "com.example.android.authenticatordemo.extra.DISPLAY_NAME";
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -190,6 +191,7 @@ public class RegisterActivity extends Activity {
         Intent intent = new Intent(this, ModeSelectActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(EXTRA_EMAIL, mEmail);
+        intent.putExtra(EXTRA_DISPLAYNAME, mDisplayName);
         this.startActivity(intent);
         finish();
     }

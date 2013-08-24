@@ -26,6 +26,7 @@
     <string name="pref_file">com.hack3d.truckit.PREF_FILE</string>
     <string name="name_pref">com.hack3d.truckit.user_id</string>
     <string name="load_pref">com.hack3d.truckit.load_id</string>
+    <string name="display_name_pref">com.hack3d.truckit.display_name</string>
     <string name="title_activity_create_job">Create a Job</string>
     <string name="title_activity_client_bid_detail">Bid Details</string>
 

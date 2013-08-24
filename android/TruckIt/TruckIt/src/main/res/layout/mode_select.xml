@@ -5,11 +5,19 @@
                 android:layout_height="fill_parent"
                 android:gravity="center">
 
+    <TextView android:id="@+id/displayNameView"
+            android:layout_width="96pt"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"/>
     <Button android:id="@+id/aclient_button"
             android:layout_width="96pt"
             android:layout_height="wrap_content"
             android:text="@string/have_load"
-            android:onClick="clientMain"/>
+            android:onClick="clientMain"
+            android:layout_below="@id/displayNameView"/>
     <Button android:id="@+id/provider_button"
             android:layout_below="@id/aclient_button"
             android:layout_width="96pt"
@@ -22,4 +30,6 @@
             android:layout_height="wrap_content"
             android:text="@string/create_load"
             android:onClick="createLoad"/>
+
+
 </RelativeLayout>

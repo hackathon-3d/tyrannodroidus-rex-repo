@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 public class ModeSelectActivity extends Activity {
 
@@ -15,6 +16,9 @@ public class ModeSelectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_select);
         SharedPreferencesUtil.setUserId(this, getIntent().getStringExtra(RegisterActivity.EXTRA_EMAIL));
+        SharedPreferencesUtil.setDisplayName(this, getIntent().getStringExtra(RegisterActivity.EXTRA_DISPLAYNAME));
+        TextView t = (TextView)findViewById(R.id.displayNameView);
+        t.setText(SharedPreferencesUtil.getDisplayName(this));
     }
 
 
