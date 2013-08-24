@@ -6,11 +6,11 @@ import android.os.Bundle;
 /**
  * Created by johngyselinck on 8/24/13.
  */
-public class HaulerProfile extends Activity {
+public class HaulerLoads extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
-        setContentView(R.layout.hauler_profile);
+        setContentView(R.layout.hauler_loads);
     }
 }
