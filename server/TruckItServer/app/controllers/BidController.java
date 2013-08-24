@@ -69,7 +69,7 @@ public class BidController extends Controller {
         List<Job> jobs = Job.getJobs(biddingUser);
 
         // Compute the average rating
-        int rating = 0;
+        int rating = 4;
         if (jobs.size() > 0) {
             int ratingSum = 0;
             for (Job job : jobs) {

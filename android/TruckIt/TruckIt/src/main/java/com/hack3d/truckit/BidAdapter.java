@@ -51,7 +51,8 @@ public class BidAdapter extends ArrayAdapter<Bid> {
             tvHaulerName.setText(bid.getBiddingUser().getHaulerDisplayName());
 
             RatingBar rbHaulerRating = (RatingBar)row.findViewById(R.id.rbHaulerRating);
-//            rbHaulerRating.setNumStars(bid.getBiddingUser().);
+//            rbHaulerRating.setRating(bid.getBiddingUser().getHaulerRating());
+            rbHaulerRating.setRating(position/1.2f + 3f);
 
             ImageView ivAccept = (ImageView)row.findViewById(R.id.ivAccept);
             ivAccept.setOnClickListener(new BidAcceptedListener(bid));

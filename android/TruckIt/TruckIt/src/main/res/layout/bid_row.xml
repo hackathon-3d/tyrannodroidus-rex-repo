@@ -14,14 +14,6 @@
                    android:id="@+id/ivAccept"
                    android:src="@drawable/edit_finish"
                    android:layout_gravity="left|center_vertical"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="$10.00"
-                android:id="@+id/tvPrice"
-                android:layout_toRightOf="@id/ivAccept"
-                android:layout_centerVertical="true"/>
         <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,11 +21,23 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"/>
     </RelativeLayout>
-    <TextView
+    <RelativeLayout android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+        <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Large Text"
+                    android:id="@+id/tvHaulerName"
+                    android:layout_gravity="left|center_vertical"/>
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Large Text"
-                android:id="@+id/tvHaulerName"
-                android:layout_gravity="left|center_vertical"/>
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="$10.00"
+                android:id="@+id/tvPrice"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+    </RelativeLayout>
 </LinearLayout>
