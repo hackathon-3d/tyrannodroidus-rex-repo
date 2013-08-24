@@ -19,7 +19,9 @@ import java.util.List;
 public class LoadController extends Controller {
 
     public static Result createLoad() {
-        return ok();
+        Load newLoad = Json.fromJson(request().body().asJson(),Load.class);
+        newLoad.save();
+        return ok(Json.toJson(newLoad));
     }
 
     public static Result getLoads(String haulerUserId) {

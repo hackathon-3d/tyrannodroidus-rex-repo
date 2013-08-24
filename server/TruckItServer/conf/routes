@@ -12,5 +12,5 @@ GET         /assets/*file        controllers.Assets.at(path="/public", file)
 GET         /user/:id            controllers.UserController.getUser(id: String)
 POST        /user                controllers.UserController.createUser()
 
-GET         /load/:userId        controllers.LoadController.getLoads(userId: String)
+GET         /load                controllers.LoadController.getLoads(city: String, state: String)
 POST        /load                controllers.LoadController.createLoad()
