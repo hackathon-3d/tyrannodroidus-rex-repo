@@ -12,6 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/description_label"/>
 
     <TextView
@@ -20,7 +21,6 @@
             android:id="@+id/job_detail"
             android:layout_below="@id/description_label"
             android:layout_alignLeft="@id/description_label"
-            android:height="40dp"
             />
     <Button
             android:layout_width="wrap_content"
@@ -33,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/start_text_label"
             android:layout_below="@id/job_detail"
             android:layout_alignParentLeft="true"/>
@@ -41,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/start"
-            android:layout_below="@id/job_detail"
+            android:layout_alignBaseline="@id/start_text_label"
             android:layout_toRightOf="@id/start_text_label"
             android:layout_alignRight="@id/job_detail"
             android:inputType="datetime"/>
@@ -49,17 +50,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="End:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/end_text_label"
             android:layout_toRightOf="@id/start"
-            android:layout_alignTop="@id/start"/>
+            android:layout_alignBaseline="@id/start"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/end"
-            android:layout_below="@id/start"
             android:layout_toRightOf="@id/end_text_label"
-            android:layout_alignRight="@id/start"
+            android:layout_alignBaseline="@id/end_text_label"
             android:inputType="datetime"/>
 
     <TextView
@@ -68,7 +69,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/current_bids"
             android:id="@+id/current_bids"
-            android:layout_below="@+id/end"
+            android:layout_below="@id/start_text_label"
             android:layout_alignParentLeft="true"/>
 
     <ListView

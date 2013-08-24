@@ -76,9 +76,9 @@ public class ClientMainActivity extends Activity {
 
     private void getBidsByJobId(){
 
-        listItems.add("Bid 1");
-        listItems.add("Bid 2");
-        listItems.add("Bid 3");
+        listItems.add("Joe Blow - $25");
+        listItems.add("Bob Smith - $35");
+        listItems.add("Mary Jones - $30");
 
     }
 
