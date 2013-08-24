@@ -26,4 +26,47 @@ public class Job {
     @Expose
     private int rating;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Load getLoad() {
+        return load;
+    }
+
+    public void setLoad(Load load) {
+        this.load = load;
+    }
+
+    public String getHaulerId() {
+        return haulerId;
+    }
+
+    public void setHaulerId(String haulerId) {
+        this.haulerId = haulerId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String toString(){
+        return "HaulerId:" + haulerId + " - $" + price + "   Rating: " + rating;
+    }
 }

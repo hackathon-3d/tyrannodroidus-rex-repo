@@ -59,7 +59,7 @@ public class RegisterActivity extends Activity {
 
 //        SharedPreferencesUtil.clearPreferences(this);
 
-        String user = SharedPreferencesUtil.getUserId(this);
+        String user = SharedPreferencesUtil.getInstance().getUserId(this);
 
         if(user != null && user.length() > 0){
             showModeSelect();
