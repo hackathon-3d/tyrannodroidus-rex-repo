@@ -28,12 +28,17 @@ public class SharedPreferencesUtil {
     }
 
 
-    private String getUserId(Context context){
+    public static String getUserId(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
         String the_name = sharedPreferences.getString(context.getString(R.string.name_pref), "no name");
         return the_name;
     }
 
-
+    public static void setUserId(Context context, String user_id){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.name_pref), user_id);
+        editor.commit();
+    }
 
 }
