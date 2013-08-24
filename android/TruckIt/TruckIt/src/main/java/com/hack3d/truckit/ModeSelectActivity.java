@@ -12,9 +12,9 @@ public class ModeSelectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_select);
-
-        Intent intent = new Intent(this, ClientMainActivity.class);
-        startActivity(intent);
+// Testing
+//        Intent intent = new Intent(this, ClientMainActivity.class);
+//        startActivity(intent);
     }
 
 
