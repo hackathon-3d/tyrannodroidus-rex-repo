@@ -30,6 +30,10 @@
             android:name=".ClientMainActivity"
             android:label="@string/title_activity_client_main" >
         </activity>
+        <activity
+            android:name="com.hack3d.truckit.HaulerHome"
+            android:label="@string/title_activity_hauler_home" >
+        </activity>
     </application>
 
 </manifest>
