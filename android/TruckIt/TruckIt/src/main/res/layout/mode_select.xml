@@ -7,10 +7,11 @@
     <Button android:id="@+id/aclient_button"
             android:layout_width="96pt"
             android:layout_height="wrap_content"
-            android:text="Have a Load"/>
+            android:text="@string/have_load"/>
     <Button android:id="@+id/provider_button"
             android:layout_below="@id/aclient_button"
             android:layout_width="96pt"
             android:layout_height="wrap_content"
-            android:text="Haul a Load"/>
+            android:text="@string/haul_load"
+            android:onClick="haulerHome"/>
 </RelativeLayout>

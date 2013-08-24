@@ -14,5 +14,6 @@
     <string name="current_jobs">Current Jobs</string>
     <string name="past_jobs">Past Jobs</string>
     <string name="title_activity_client_past_jobs">Past Jobs</string>
+    <string name="title_activity_hauler_home">Hauler Home</string>
 
 </resources>
