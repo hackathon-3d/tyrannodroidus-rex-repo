@@ -20,7 +20,7 @@ public class HttpHelper {
 
     public static final String TAG = HttpHelper.class.getName();
 
-    public static Object getJson(String url) {
+    public static String getJson(String url) {
         // Prevent connection pooling
         System.setProperty("http.keepAlive", "false");
         try {
@@ -66,7 +66,7 @@ public class HttpHelper {
 
     }
 
-    public static Object postJson(String url, String jsonEntity) {
+    public static String postJson(String url, String jsonEntity) {
         // Prevent connection pooling
         System.setProperty("http.keepAlive", "false");
         try {
