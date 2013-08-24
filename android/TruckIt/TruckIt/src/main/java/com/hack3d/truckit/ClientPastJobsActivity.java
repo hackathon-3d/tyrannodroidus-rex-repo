@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ClientPastJobs extends Activity {
+public class ClientPastJobsActivity extends Activity {
 
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     ArrayList<String> listItems=new ArrayList<String>();
@@ -20,6 +20,8 @@ public class ClientPastJobs extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_past_jobs);
+        setUpView();
+        setUpMocks();
     }
 
 
@@ -34,7 +36,7 @@ public class ClientPastJobs extends Activity {
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, listItems);
-        ListView listView = (ListView) findViewById(R.id.client_past_jobs);
+        ListView listView = (ListView) findViewById(R.id.client_past_jobs_list_view);
         listView.setAdapter(adapter);
     }
 

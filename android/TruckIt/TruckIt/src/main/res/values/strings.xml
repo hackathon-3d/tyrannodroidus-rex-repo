@@ -12,7 +12,9 @@
     <string name="details">Details</string>
     <string name="bids">Bids</string>
     <string name="current_jobs">Current Jobs</string>
+    <string name="current_bids">Current Bids</string>
     <string name="past_jobs">Past Jobs</string>
     <string name="title_activity_client_past_jobs">Past Jobs</string>
+    <string name="title_activity_client_main">Client Main</string>
 
 </resources>

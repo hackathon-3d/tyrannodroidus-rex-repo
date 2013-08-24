@@ -23,8 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hack3d.truckit.ClientPastJobs"
+            android:name=".ClientPastJobsActivity"
             android:label="@string/title_activity_client_past_jobs" >
+        </activity>
+        <activity
+            android:name=".ClientMainActivity"
+            android:label="@string/title_activity_client_main" >
         </activity>
     </application>
 
