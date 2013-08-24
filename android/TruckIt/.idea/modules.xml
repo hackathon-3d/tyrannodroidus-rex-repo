@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TruckIt.iml" filepath="$PROJECT_DIR$/TruckIt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TruckIt/TruckIt-TruckIt.iml" filepath="$PROJECT_DIR$/TruckIt/TruckIt-TruckIt.iml" />
+    </modules>
+  </component>
+</project>
+
