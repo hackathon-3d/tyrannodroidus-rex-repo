@@ -92,4 +92,10 @@ public class Load {
     public void setDropoffBy(String dropoffBy) {
         this.dropoffBy = dropoffBy;
     }
+
+    @Override
+    public String toString(){
+        return this.getCustomerId() + " - " + this.getPickupLocation().getStreet() + " " +
+                this.getPickupLocation().getCity() + ", " + this.getPickupLocation().getState();
+    }
 }
