@@ -6,15 +6,19 @@
               android:layout_height="match_parent"
               android:gravity="center"
         >
-    <TextView android:id="@+id/hauler_sample"
+    <TextView android:id="@+id/hauler_display_name"
+              android:textAppearance="?android:attr/textAppearanceLarge"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:text="Hauler Home"
+              android:layout_marginBottom="16dp"
             />
     <TextView android:id="@+id/hauler_user_name"
+              android:textAppearance="?android:attr/textAppearanceLarge"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:text="default"
+              android:layout_marginBottom="16dp"
             />
     <LinearLayout android:orientation="horizontal"
                   android:layout_width="match_parent"

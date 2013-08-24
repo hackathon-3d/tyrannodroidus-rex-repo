@@ -2,6 +2,7 @@ package com.hack3d.truckit;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  * Time: 11:23 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Load {
+public class Load implements Serializable{
 
     @Expose
     public int id;

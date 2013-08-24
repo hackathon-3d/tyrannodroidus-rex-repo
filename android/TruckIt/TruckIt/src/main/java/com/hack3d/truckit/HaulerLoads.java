@@ -1,10 +1,14 @@
 package com.hack3d.truckit;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,22 +18,31 @@ import java.util.List;
  */
 public class HaulerLoads extends Activity {
 
+    public static String LOAD_EXTRA = "com.hack3d.truckit.LOAD_EXTRA";
     private GetLoadsTask getLoadsTask = null;
 
-    ArrayList<String> stringList = new ArrayList<String>();
+    ArrayList<Load> stringList = new ArrayList<Load>();
     List<Load> loadList = new ArrayList<Load>();
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<Load> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.hauler_loads);
-        ListView loads = (ListView)findViewById(R.id.hauler_loads);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, stringList);
+        final ListView loads = (ListView)findViewById(R.id.hauler_loads);
+        adapter = new ArrayAdapter<Load>(this,android.R.layout.simple_list_item_1, stringList);
         getLoadsTask = new GetLoadsTask();
         getLoadsTask.execute((Void) null);
-//        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, getArrayListOfLoads(loadList));
         loads.setAdapter(adapter);
+        loads.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Load selected = (Load) loads.getItemAtPosition(i);
+                Intent intent = new Intent(HaulerLoads.this, SubmitBidActivity.class);
+                intent.putExtra(HaulerLoads.LOAD_EXTRA, selected);
+                HaulerLoads.this.startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -47,7 +60,7 @@ public class HaulerLoads extends Activity {
         protected void onPostExecute(final Boolean success) {
             getLoadsTask = null;
             for(Load load:loadList){
-                stringList.add(load.toString());
+                stringList.add(load);
             }
             adapter.notifyDataSetChanged();
         }
@@ -55,7 +68,6 @@ public class HaulerLoads extends Activity {
         @Override
         protected void onCancelled() {
             getLoadsTask = null;
-//            showProgress(false);
         }
 
 
@@ -63,17 +75,10 @@ public class HaulerLoads extends Activity {
 
     public static ArrayList<String> getArrayListOfLoads(List<Load> listOfLoads){
         String[] values = new String[]{"Hello", "World", "This", "IS", "Sample", "Data"};
-//        List<Load> loadList = TruckItClient.getLoads("CHARLESTON", "SC");
         ArrayList<String> theList = new ArrayList<String>();
         for(int i = 0; i < values.length; i++){
             theList.add(values[i]);
         }
-//        if(listOfLoads == null){
-//            return theList;
-//        }
-//        for(Load loadItem:listOfLoads){
-//            theList.add(loadItem.getLoadDescription());
-//        }
         return theList;
     }
 }

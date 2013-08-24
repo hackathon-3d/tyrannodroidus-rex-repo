@@ -2,6 +2,8 @@ package com.hack3d.truckit;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: ericwood
@@ -9,7 +11,7 @@ import com.google.gson.annotations.Expose;
  * Time: 12:33 AM
  * To change this template use File | Settings | File Templates.
  */
-public class Location {
+public class Location implements Serializable{
 
     @Expose
     public int id;
