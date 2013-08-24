@@ -20,10 +20,10 @@ import java.util.List;
 public class ClientMainActivity extends Activity {
 
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
-    ArrayList<String> listItems=new ArrayList<String>();
+//    ArrayList<String> listItems=new ArrayList<String>();
 
     //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
-    ArrayAdapter<String> adapter;
+    BidAdapter adapter;
 
     private TextView jobDetailInput;
 
@@ -37,7 +37,7 @@ public class ClientMainActivity extends Activity {
 
     private TextView end;
 
-    private GetLoadTask getLoadTask;
+//    private GetLoadTask getLoadTask;
 
     List<Bid> bidList=new ArrayList<Bid>();
 
@@ -66,15 +66,18 @@ public class ClientMainActivity extends Activity {
         start = (TextView) findViewById(R.id.start);
         end = (TextView) findViewById(R.id.end);
 
-        adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, listItems);
+//        adapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, listItems);
         ListView listView = (ListView) findViewById(R.id.bids_list_view);
+//        listView.setAdapter(adapter);
+        adapter = new BidAdapter(this, R.layout.bid_row, new ArrayList<Bid>(),"foo");
         listView.setAdapter(adapter);
+
     }
 
     private void setUpMocks(){
         getJobDetailByJobId();
-        getBidsByJobId();
+//        getBidsByJobId();
     }
 
     private void getJobDetailByJobId(){
@@ -84,12 +87,12 @@ public class ClientMainActivity extends Activity {
         end.setText("END");
     }
 
-    private void getBidsByJobId(){
-
-        getLoadTask = new GetLoadTask();
-        getLoadTask.execute((Void) null);
-
-    }
+//    private void getBidsByJobId(){
+//
+//        getLoadTask = new GetLoadTask();
+//        getLoadTask.execute((Void) null);
+//
+//    }
 
 
     public void getBidDetail(long load_id){
@@ -118,29 +121,29 @@ public class ClientMainActivity extends Activity {
 
 
 
-    public class GetLoadTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-            bidList = TruckItClient.getBids("TEST");
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            for (Bid bid: bidList){
-                listItems.add(bid.toString());
-            }
-            adapter.notifyDataSetChanged();
-            getLoadTask = null;
-        }
-
-        @Override
-        protected void onCancelled() {
-            getLoadTask = null;
-            //showProgress(false);
-        }
-    }
+//    public class GetLoadTask extends AsyncTask<Void, Void, Boolean> {
+//        @Override
+//        protected Boolean doInBackground(Void... params) {
+//            // TODO: attempt authentication against a network service.
+//            bidList = TruckItClient.getBids("TEST");
+//            return true;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(final Boolean success) {
+//            for (Bid bid: bidList){
+//                listItems.add(bid.toString());
+//            }
+//            adapter.notifyDataSetChanged();
+//            getLoadTask = null;
+//        }
+//
+//        @Override
+//        protected void onCancelled() {
+//            getLoadTask = null;
+//            //showProgress(false);
+//        }
+//    }
 
     private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
