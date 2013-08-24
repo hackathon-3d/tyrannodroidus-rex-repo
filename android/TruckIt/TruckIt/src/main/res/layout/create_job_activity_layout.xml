@@ -15,14 +15,6 @@
             android:layout_centerHorizontal="true"
             >
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/description"
-                android:id="@+id/textView"
-                android:layout_gravity="left|center_vertical"/>
-
         <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="154dp"
@@ -30,29 +22,14 @@
                 android:layout_gravity="left|center_vertical"
                 android:hint="A description of the work you need done."/>
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/start"
-                android:id="@+id/textView2"
-                android:layout_gravity="left|center_vertical"/>
-
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
                 android:id="@+id/create_job_start_input"
-                android:layout_gravity="left|center_vertical"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/end"
-                android:id="@+id/textView3"
-                android:layout_gravity="left|center_vertical"/>
+                android:layout_gravity="left|center_vertical"
+                android:hint="Start Time"/>
 
         <EditText
                 android:layout_width="wrap_content"
@@ -60,7 +37,53 @@
                 android:inputType="date"
                 android:ems="10"
                 android:id="@+id/create_text_end_input"
-                android:layout_gravity="left|center_vertical"/>
+                android:layout_gravity="left|center_vertical"
+                android:hint="End Time"/>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left">
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPostalAddress"
+                    android:ems="10"
+                    android:id="@+id/create_job_address"
+                    android:hint="Address"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_state"
+                    android:hint="State"
+                    android:layout_alignParentTop="false"
+                    android:layout_below="@+id/create_job_address"
+                    android:layout_toLeftOf="@+id/create_job_zip"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_city"
+                    android:layout_below="@+id/create_job_address"
+                    android:layout_alignParentLeft="true"
+                    android:hint="City"
+                    android:layout_alignBottom="@+id/create_job_state"
+                    android:layout_toLeftOf="@+id/create_job_state"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/create_job_zip"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentRight="true"
+                    android:hint="ZIP"
+                    android:layout_alignBaseline="@+id/create_job_city"
+                    android:minWidth="80dp"/>
+        </RelativeLayout>
 
         <Button
                 android:layout_width="wrap_content"
