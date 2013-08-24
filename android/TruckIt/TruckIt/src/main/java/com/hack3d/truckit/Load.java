@@ -1,5 +1,7 @@
 package com.hack3d.truckit;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Date;
 
 /**
@@ -10,18 +12,26 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class Load {
+
+    @Expose
     public int id;
 
+    @Expose
     private String customerId;
 
+    @Expose
     private Location pickupLocation;
 
+    @Expose
     private Location dropoffLocation;
 
+    @Expose
     private String loadDescription;
 
+    @Expose
     private Date pickupBy;
 
+    @Expose
     private Date dropoffBy;
 
     public int getId() {

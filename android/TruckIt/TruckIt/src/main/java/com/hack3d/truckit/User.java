@@ -1,5 +1,7 @@
 package com.hack3d.truckit;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
@@ -11,14 +13,19 @@ import java.util.List;
  */
 public class User {
 
+    @Expose
     private String userId;
 
+    @Expose
     private String customerDisplayName;
 
+    @Expose
     private String haulerDisplayName;
 
+    @Expose
     private String haulerState;
 
+    @Expose
     private List<Integer> haulerZipCodes;
 
     public String getUserId() {
