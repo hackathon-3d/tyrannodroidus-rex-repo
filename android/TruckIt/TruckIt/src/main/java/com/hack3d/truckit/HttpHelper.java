@@ -67,13 +67,21 @@ public class HttpHelper {
     }
 
     public static String postJson(String url, String jsonEntity) {
+        return postPutJson(url, "POST", jsonEntity);
+    }
+
+    public static String putJson(String url, String jsonEntity) {
+        return postPutJson(url, "PUT", jsonEntity);
+    }
+
+    private static String postPutJson(String url, String requestType, String jsonEntity) {
         // Prevent connection pooling
         System.setProperty("http.keepAlive", "false");
         try {
             URL httpUrl = new URL(url);
             HttpURLConnection httpConnection = (HttpURLConnection) httpUrl.openConnection();
 
-            httpConnection.setRequestMethod("POST");
+            httpConnection.setRequestMethod(requestType);
             httpConnection.setRequestProperty("Content-Type","application/json");
 
             httpConnection.connect();
