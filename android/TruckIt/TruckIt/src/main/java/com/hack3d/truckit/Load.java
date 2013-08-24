@@ -2,6 +2,7 @@ package com.hack3d.truckit;
 
 import com.google.gson.annotations.Expose;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -29,10 +30,12 @@ public class Load {
     private String loadDescription;
 
     @Expose
-    private Date pickupBy;
+    private String pickupBy;
 
     @Expose
-    private Date dropoffBy;
+    private String dropoffBy;
+
+
 
     public int getId() {
         return id;
@@ -74,19 +77,19 @@ public class Load {
         this.loadDescription = loadDescription;
     }
 
-    public Date getPickupBy() {
+    public String getPickupBy() {
         return pickupBy;
     }
 
-    public void setPickupBy(Date pickupBy) {
+    public void setPickupBy(String pickupBy) {
         this.pickupBy = pickupBy;
     }
 
-    public Date getDropoffBy() {
+    public String getDropoffBy() {
         return dropoffBy;
     }
 
-    public void setDropoffBy(Date dropoffBy) {
+    public void setDropoffBy(String dropoffBy) {
         this.dropoffBy = dropoffBy;
     }
 }
