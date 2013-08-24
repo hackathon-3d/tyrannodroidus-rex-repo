@@ -22,13 +22,13 @@
             android:layout_below="@id/description_label"
             android:layout_alignLeft="@id/description_label"
             />
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/job_detail"
-            android:layout_alignBottom="@id/job_detail"
-            android:text="Edit"
-    />
+    <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@id/job_detail"-->
+            <!--android:layout_alignBottom="@id/job_detail"-->
+            <!--android:text="Edit"-->
+    <!--/>-->
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

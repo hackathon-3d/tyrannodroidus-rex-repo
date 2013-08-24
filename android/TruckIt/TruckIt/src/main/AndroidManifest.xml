@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -25,8 +25,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.hack3d.truckit.ModeSelectActivity"
-                android:label="@string/title_activity_mode_select" >
+            android:name="com.hack3d.truckit.ModeSelectActivity"
+            android:label="@string/title_activity_mode_select" >
         </activity>
         <activity
             android:name="com.hack3d.truckit.ClientPastJobsActivity"
@@ -56,6 +56,10 @@
             android:name="com.hack3d.truckit.RegisterActivity"
             android:label="@string/title_activity_register"
             android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.hack3d.truckit.ClientBidDetail"
+            android:label="@string/title_activity_client_bid_detail" >
         </activity>
     </application>
 
