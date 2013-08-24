@@ -4,5 +4,14 @@
     <string name="app_name">TruckIt</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="description">Description</string>
+    <string name="start">Start Time</string>
+    <string name="end">EndTime</string>
+    <string name="have_load">Have a Load</string>
+    <string name="haul_load">Haul a Load</string>
+    <string name="details">Details</string>
+    <string name="bids"></string>
+    <string name="current_jobs">Current Jobs</string>
+    <string name="past_jobs">Past Jobs</string>
 
 </resources>
