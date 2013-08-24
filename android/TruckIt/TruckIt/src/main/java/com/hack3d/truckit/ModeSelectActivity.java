@@ -14,7 +14,7 @@ public class ModeSelectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_select);
-        SharedPreferencesUtil.setUserId(this, "My User");
+        SharedPreferencesUtil.setUserId(this, getIntent().getStringExtra(RegisterActivity.EXTRA_EMAIL));
     }
 
 

@@ -56,6 +56,14 @@ public class RegisterActivity extends Activity {
 
         setContentView(R.layout.register);
 
+//        SharedPreferencesUtil.clearPreferences(this);
+
+        String user = SharedPreferencesUtil.getUserId(this);
+
+        if(user != null && user.length() > 0){
+            showModeSelect();
+        }
+
         // Set up the login form.
         mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
         mEmailView = (EditText) findViewById(R.id.email);
@@ -178,6 +186,14 @@ public class RegisterActivity extends Activity {
         }
     }
 
+    private void showModeSelectAndSendEmail() {
+        Intent intent = new Intent(this, ModeSelectActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(EXTRA_EMAIL, mEmail);
+        this.startActivity(intent);
+        finish();
+    }
+
     private void showModeSelect() {
         Intent intent = new Intent(this, ModeSelectActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -204,7 +220,7 @@ public class RegisterActivity extends Activity {
         protected void onPostExecute(final Boolean success) {
             userRegistrationTask = null;
             showProgress(false);
-            showModeSelect();
+            showModeSelectAndSendEmail();
         }
 
         @Override
