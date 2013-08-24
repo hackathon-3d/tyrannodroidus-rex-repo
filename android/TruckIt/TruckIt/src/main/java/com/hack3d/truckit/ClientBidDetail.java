@@ -8,6 +8,9 @@ import android.view.View;
 
 public class ClientBidDetail extends Activity {
 
+    public static final String LOAD_ID = "load_id";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,6 +40,7 @@ public class ClientMainActivity extends Activity {
     private GetLoadTask getLoadTask;
 
     List<Bid> bidList=new ArrayList<Bid>();
+
 
 
     @Override
@@ -90,11 +92,12 @@ public class ClientMainActivity extends Activity {
     }
 
 
-    public void getBidDetail(View view){
+    public void getBidDetail(long load_id){
         //launch a bid detail view
 
-        SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
+        //SharedPreferencesUtil.getInstance().setCurrentLoad(this, "1234");
         Intent intent = new Intent(this, ClientMainActivity.class);
+        intent.putExtra(ClientBidDetail.LOAD_ID, load_id);
         startActivity(intent);
     }
 
@@ -138,6 +141,13 @@ public class ClientMainActivity extends Activity {
             //showProgress(false);
         }
     }
+
+    private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+            Bid bidItem = (Bid) parent.getItemAtPosition(position);
+            getBidDetail(bidItem.getId());
+        }
+    };
 
 
 
