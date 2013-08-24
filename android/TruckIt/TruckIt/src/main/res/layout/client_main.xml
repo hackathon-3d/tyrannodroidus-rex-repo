@@ -12,47 +12,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:id="@+id/start_time_text"/>
+            android:id="@+id/description_label"/>
 
-    <EditText
-            android:layout_width="fill_parent"
+    <TextView
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:id="@+id/job_detail_input"
-            android:layout_below="@id/start_time_text"
-            android:layout_alignLeft="@id/start_time_text"
+            android:id="@+id/job_detail"
+            android:layout_below="@id/description_label"
+            android:layout_alignLeft="@id/description_label"
+            android:height="40dp"
             />
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/job_detail"
+            android:layout_alignBottom="@id/job_detail"
+            android:text="Edit"
+    />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start:"
-            android:id="@+id/start_text"
-            android:layout_below="@id/job_detail_input"
+            android:id="@+id/start_text_label"
+            android:layout_below="@id/job_detail"
             android:layout_alignParentLeft="true"/>
 
-    <EditText
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/start_input"
-            android:layout_below="@+id/job_detail_input"
-            android:layout_toRightOf="@+id/start_text"
-            android:layout_alignRight="@+id/job_detail_input"
+            android:id="@+id/start"
+            android:layout_below="@id/job_detail"
+            android:layout_toRightOf="@id/start_text_label"
+            android:layout_alignRight="@id/job_detail"
             android:inputType="datetime"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="End:"
-            android:id="@+id/end_text"
-            android:layout_below="@+id/start_input"
-            android:layout_alignParentLeft="true"/>
+            android:id="@+id/end_text_label"
+            android:layout_toRightOf="@id/start"
+            android:layout_alignTop="@id/start"/>
 
-    <EditText
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/end_input"
-            android:layout_below="@+id/start_input"
-            android:layout_toRightOf="@+id/end_text"
-            android:layout_alignRight="@+id/start_input"
+            android:id="@+id/end"
+            android:layout_below="@id/start"
+            android:layout_toRightOf="@id/end_text_label"
+            android:layout_alignRight="@id/start"
             android:inputType="datetime"/>
 
     <TextView
@@ -61,35 +68,46 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/current_bids"
             android:id="@+id/current_bids"
-            android:layout_below="@+id/end_input"
+            android:layout_below="@+id/end"
             android:layout_alignParentLeft="true"/>
-
-    <Button
-            android:id="@+id/past_jobs_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/past_jobs"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/bids_list_view"
-            android:onClick="viewPastJobs"/>
 
     <ListView
             android:id="@+id/bids_list_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/current_bids"
-            android:layout_above="@id/past_jobs_button"
-            android:layout_alignLeft="@+id/current_bids"/>
+            android:layout_alignLeft="@+id/current_bids"
+            />
 
-    <Button
-            android:id="@+id/past_jobs_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/current_jobs"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/bids_list_view"/>
+    <LinearLayout android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="0dip"
+                  android:layout_weight="1"
+                  android:gravity="center|bottom"
+                  android:id="@+id/buttons"
+                  android:layout_alignParentBottom="true"
+                  android:layout_below="@id/bids_list_view">
+
+        <Button
+                android:id="@+id/past_jobs_button"
+                android:layout_width="96pt"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/past_jobs"
+                android:onClick="viewPastJobs"/>
+        <Button
+                android:id="@+id/current_jobs_button"
+                android:layout_width="96pt"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/current_jobs"/>
+
+    </LinearLayout>
+
+
+
+
+
 
 
 </RelativeLayout>

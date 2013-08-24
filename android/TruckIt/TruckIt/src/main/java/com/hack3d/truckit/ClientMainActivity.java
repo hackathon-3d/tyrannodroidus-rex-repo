@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,17 +21,17 @@ public class ClientMainActivity extends Activity {
     //DEFINING STRING ADAPTER WHICH WILL HANDLE DATA OF LISTVIEW
     ArrayAdapter<String> adapter;
 
-    private EditText jobDetailInput;
+    private TextView jobDetailInput;
 
-    private EditText startInput;
+    private TextView startInput;
 
-    private EditText endInput;
+    private TextView endInput;
 
-    private String jobDetail;
+    private TextView jobDetail;
 
-    private Date start;
+    private TextView start;
 
-    private Date end;
+    private TextView end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,9 @@ public class ClientMainActivity extends Activity {
 
     private void setUpView(){
 
-        jobDetailInput = (EditText) findViewById(R.id.job_detail_input);
-        startInput = (EditText) findViewById(R.id.start_input);
-        endInput = (EditText) findViewById(R.id.end_input);
+        jobDetail = (TextView) findViewById(R.id.job_detail);
+        start = (TextView) findViewById(R.id.start);
+        end = (TextView) findViewById(R.id.end);
 
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, listItems);
@@ -62,25 +63,30 @@ public class ClientMainActivity extends Activity {
     }
 
     private void setUpMocks(){
-        listItems.add("Bid 1");
-        listItems.add("Bid 2");
-        listItems.add("Bid 3");
-
-        //startInput.setText();
-        jobDetailInput.setText("This is the job description text. This is the job description text. This is the job description text. This is the job description text. This is the job description text.");
+        getJobDetailByJobId();
+        getBidsByJobId();
     }
 
     private void getJobDetailByJobId(){
         //call to service with job id
+        jobDetail.setText("This is the job description text. This is the job description text. This is the job description text. This is the job description text. This is the job description text.");
+        start.setText("START");
+        end.setText("END");
     }
 
     private void getBidsByJobId(){
 
+        listItems.add("Bid 1");
+        listItems.add("Bid 2");
+        listItems.add("Bid 3");
+
     }
 
-    private void getListItem(){
+
+    private void getBidDetail(){
         //launch a bid detail view
     }
+
 
     private void editDetail(){
         //launch a job detail view
@@ -92,14 +98,8 @@ public class ClientMainActivity extends Activity {
 
     public void viewPastJobs(View view){
 
-        //intent.putExtra(CreateTeamActivity.TEAM_ID_KEY, teamId);
-        //playerDatabase.closeDatabase();
         Intent intent = new Intent(this, ClientPastJobsActivity.class);
         startActivity(intent);
     }
-
-
-
-
 
 }
